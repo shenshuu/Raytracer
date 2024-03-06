@@ -56,6 +56,17 @@ struct Tuple mul(struct Tuple *t, const double c) {
     return w;
 }
 
+struct Tuple cross(struct Tuple *a, struct Tuple *b) {
+    return vector(
+        (*a).y * (*b).z - (*a).z * (*b).y,
+        (*a).z * (*b).x - (*a).x * (*b).z,  
+        (*a).x * (*b).y - (*a).y * (*b).x);
+}
+
+double dot(struct Tuple *a, struct Tuple *b) {
+    return (*a).x * (*b).x + (*a).y * (*b).y + (*a).z * (*b).z + (*a).w * (*b).w;
+}
+
 double mag(struct Tuple *t) {
     return sqrt((*t).x * (*t).x + (*t).y * (*t).y + (*t).z * (*t).z + (*t).w * (*t).w);
 }
@@ -69,8 +80,9 @@ void printTuple(struct Tuple *t) {
 }
 
 int main(void) {
-    Vector v = vector(1, 2, 3);
-    Vector w = norm(&v);
-    printTuple(&w);
+    Vector a = vector(1,2,3);
+    Vector b = vector(2,3,4);
+    Vector z = cross(&b, &a);
+    printTuple(&z);
     return 0;
 }
