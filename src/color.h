@@ -14,6 +14,9 @@ class Color : public Tuple {
         // overloaded multiplication operator
         Color operator*(Color& other);  
 
+        // overloaded equality operator
+        bool operator==(Color& other);
+
     private:
 
 };

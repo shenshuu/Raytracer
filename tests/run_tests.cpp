@@ -1,6 +1,7 @@
 #include "test_tuple.cpp"
 #include "test_vector.cpp"
 #include "test_color.cpp"
+#include "test_canvas.cpp"
 
 int main() {
     // tuple tests
@@ -16,7 +17,9 @@ int main() {
 
     // color tests
     test_add_color();
-    // test_sub_color();
     test_scale_color();
+
+    // canvas tests
+    test_canvas_write();
     return 0;
 }

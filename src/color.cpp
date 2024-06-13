@@ -10,3 +10,7 @@ Color Color::operator*(Color& other) {
         getY() * other.getY(),
         getZ() * other.getZ());
 }
+
+bool Color::operator==(Color& other) {
+    return getX() == other.getX() && getY() == other.getY() && getZ() == other.getZ();
+}
