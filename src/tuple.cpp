@@ -1,4 +1,5 @@
 #include "tuple.h"
+#include <iostream>
 
 Tuple::Tuple() {
     x_ = 0.0;
@@ -40,4 +41,8 @@ Tuple Tuple::neg() {
 
 Tuple Tuple::scale(double c) {
     return Tuple(x_ * c, y_ * c, z_ * c, w_ * c);
+}
+
+void Tuple::print() {
+    std::cout << "(" << x_ << ", " << y_ << ", " << z_ << ", " << w_ << ")" << std::endl;
 }

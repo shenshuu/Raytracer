@@ -30,6 +30,9 @@ class Tuple {
         // scale tuple
         Tuple scale(double c);
 
+        // debugger function
+        void print();
+
     private:
         double x_;
         double y_;
