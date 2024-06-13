@@ -1,4 +1,5 @@
-#define EPSILON 0.00001
+#define EPSILON 1e-9
+#include "utilities.h"
 #include <math.h>
 
 bool check_equal(double a, double b) {

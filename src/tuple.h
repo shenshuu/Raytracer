@@ -1,3 +1,6 @@
+#ifndef TUPLE_H
+#define TUPLE_H
+
 class Tuple {
     public:
         // default constructor
@@ -9,11 +12,20 @@ class Tuple {
         // overloaded + operator
         Tuple operator+(const Tuple& other);
 
+        // overloaded - operator
+        Tuple operator-(const Tuple& other);
+
         // getter methods
         double getX() { return x_; };
         double getY() { return y_; };
         double getZ() { return z_; };
         double getW() { return w_; };
+
+        // negate tuple
+        Tuple neg();
+
+        // scale tuple
+        Tuple scale(double c);
 
     private:
         double x_;
@@ -21,3 +33,5 @@ class Tuple {
         double z_;
         int w_;
 };
+
+#endif

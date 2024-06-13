@@ -15,11 +15,25 @@ Tuple::Tuple(double x, double y, double z, int w) {
 }
 
 Tuple Tuple::operator+(const Tuple& other) {
-    Tuple t(
+    return Tuple(
         x_ + other.x_,
         y_ + other.y_,
         z_ + other.z_,
         w_ + other.w_);
-    return t;
 }
 
+Tuple Tuple::operator-(const Tuple& other) {
+    return Tuple(
+        x_ - other.x_,
+        y_ - other.y_,
+        z_ - other.z_,
+        w_ - other.w_);
+}
+
+Tuple Tuple::neg() {
+    return Tuple() - *this;
+}
+
+Tuple Tuple::scale(double c) {
+    return Tuple(x_ * c, y_ * c, z_ * c, w_ * c);
+}
