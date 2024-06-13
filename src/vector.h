@@ -13,6 +13,15 @@ class Vector : public Tuple {
         // magnitude of vector
         double mag();
 
+        // normalize vector
+        Vector normalize();
+
+        // dot product
+        double dot(Vector& other);
+
+        // cross product
+        Vector cross(Vector& other);
+
     private:
 };
 

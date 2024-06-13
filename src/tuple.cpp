@@ -30,6 +30,10 @@ Tuple Tuple::operator-(const Tuple& other) {
         w_ - other.w_);
 }
 
+bool Tuple::operator==(const Tuple& other) {
+    return x_ == other.x_ && y_ == other.y_ && w_ == other.w_ && z_ == other.z_;
+}
+
 Tuple Tuple::neg() {
     return Tuple() - *this;
 }

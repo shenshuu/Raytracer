@@ -1,7 +1,7 @@
 #define EPSILON 1e-9
 #include "utilities.h"
-#include <math.h>
+#include <cmath>
 
 bool check_equal(double a, double b) {
-    return std::fabs(a - b) < EPSILON;
+    return std::abs(a - b) < EPSILON;
 }

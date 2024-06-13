@@ -10,5 +10,8 @@ int main() {
 
     // vector tests
     test_mag_vector();
+    test_norm_vector();
+    test_dot_vector();
+    
     return 0;
 }

@@ -11,7 +11,7 @@ void test_create_tuple() {
     assert(check_equal(tuple.getZ(), 3.2));
     assert(tuple.getW() == 0);
     
-    // std::cout << "test_create_tuple passed." << std::endl;
+    std::cout << "test_create_tuple passed." << std::endl;
 }
 
 void test_add_tuple() {
@@ -23,7 +23,7 @@ void test_add_tuple() {
     assert(check_equal(t3.getY(), 6.0));
     assert(check_equal(t3.getZ(), 8.3));
     assert(t3.getW() == 0);
-    // std::cout << "test_add_tuple passed." << std::endl;
+    std::cout << "test_add_tuple passed." << std::endl;
 }
 
 void test_sub_tuple() {
@@ -36,7 +36,7 @@ void test_sub_tuple() {
     assert(check_equal(t3.getZ(), -6.0));
     assert(t3.getW() == 0);
 
-    // std::cout << "test_sub_tuple passed." << std::endl;
+    std::cout << "test_sub_tuple passed." << std::endl;
 }
 
 void test_neg_tuple() {
@@ -48,7 +48,7 @@ void test_neg_tuple() {
     assert(check_equal(t2.getZ(), -3.0));
     assert(t2.getW() == 0);
 
-    // std::cout << "test_neg_tuple passed." << std::endl;
+    std::cout << "test_neg_tuple passed." << std::endl;
 }
 
 void test_scale_tuple() {
@@ -60,5 +60,5 @@ void test_scale_tuple() {
     assert(check_equal(t2.getZ(), 21.9));
     assert(t2.getW() == 0);
 
-    // std::cout << "test_scale_tuple passed." << std::endl;
+    std::cout << "test_scale_tuple passed." << std::endl;
 }

@@ -15,6 +15,9 @@ class Tuple {
         // overloaded - operator
         Tuple operator-(const Tuple& other);
 
+        // overloaded == operator
+        bool operator==(const Tuple& other);
+
         // getter methods
         double getX() { return x_; };
         double getY() { return y_; };
