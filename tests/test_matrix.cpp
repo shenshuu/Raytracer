@@ -20,3 +20,31 @@ void test_create_matrix() {
 
     std::cout << "test_create_matrix passed." << std::endl;
 }
+
+void test_matrix_equality() {
+    std::vector<std::vector<double> > a = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12},
+        {1, 2, 3, 4}
+    };
+
+    std::vector<std::vector<double> > b = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12},
+        {1, 2, 3, 4}
+    };
+
+    std::vector<std::vector<double> > c = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {5, 4, 3, 2},
+        {1, 2, 3, 4}
+    };
+
+    assert(a == b);
+    assert(b != c);
+
+    std::cout << "test_matrix_equality passed." << std::endl;
+}
