@@ -14,6 +14,12 @@ class Matrix {
         // overloaded equality operator for testing
         bool operator==(Matrix& other);
 
+        // overloaded inequality operator
+        bool operator!=(Matrix& other);
+
+        // overloaded multiplication operator
+        Matrix operator*(Matrix& other);
+
         // print function for debugging
         void print();
 

@@ -33,6 +33,7 @@ int main() {
     // matrix tests
     test_create_matrix();
     test_matrix_equality();
+    test_matrix_multiplication();
 
     return 0;
 }

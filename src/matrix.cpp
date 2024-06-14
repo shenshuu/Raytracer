@@ -37,7 +37,7 @@ bool Matrix::operator==(Matrix& other) {
     if (other.number_of_cols() != cols_ || other.number_of_rows() != rows_)
         return false;
     
-    std::vector<std::vector<double> > other_;
+    std::vector<std::vector<double> > other_ = other.get_matrix();
     
     for (int i = 0; i < rows_; i++) {
         for (int j = 0; j < cols_; j++) {
@@ -47,6 +47,27 @@ bool Matrix::operator==(Matrix& other) {
     }
 
     return true;
+}
+
+bool Matrix::operator!=(Matrix& other) {
+    return !(*this == other);
+}
+
+Matrix Matrix::operator*(Matrix& other) {
+    if (cols_ != other.number_of_rows())
+        throw std::logic_error("invalid matrix dimensions for multiplying");
+    
+    std::vector<std::vector<double> > result(rows_, std::vector<double>(other.number_of_cols(), 0));
+
+    for (int i = 0; i < rows_; i++) {
+        for (int j = 0; j < other.number_of_cols(); j++) {
+            for (int k = 0; k < other.number_of_rows(); k++) {
+                result[i][j] += matrix_[i][k] * other.element_at(k, j);
+            }
+        }
+    }
+
+    return Matrix(result);
 }
 
 double Matrix::element_at(int row, int col) {
