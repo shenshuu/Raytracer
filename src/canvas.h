@@ -17,6 +17,9 @@ class Canvas {
         // returns pixel at specific position
         Color pixel_at(int r, int c);
 
+        // write to PPM file
+        void to_ppm();
+
     private:
         std::vector<std::vector<Color> > canvas_;
         int width_;

@@ -2,6 +2,7 @@
 #include "test_vector.cpp"
 #include "test_color.cpp"
 #include "test_canvas.cpp"
+#include "../src/canvas.h"
 
 int main() {
     // tuple tests
@@ -21,5 +22,12 @@ int main() {
 
     // canvas tests
     test_canvas_write();
+
+    Canvas canvas(5, 3);
+    canvas.write_pixel(0, 0, Color(1.5, 0.0, 0.0));
+    canvas.write_pixel(2, 1, Color(0.0, 0.5, 0.0));
+    canvas.write_pixel(2, 4, Color(-0.5, 0.0, 1.0));
+    canvas.to_ppm();
+
     return 0;
 }
