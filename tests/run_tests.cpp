@@ -34,6 +34,8 @@ int main() {
     test_create_matrix();
     test_matrix_equality();
     test_matrix_multiplication();
+    test_matrix_identity();
+    test_matrix_transpose();
 
     return 0;
 }

@@ -79,3 +79,54 @@ void test_matrix_multiplication() {
 
     std::cout << "test_matrix_multiplication passed." << std::endl;
 }
+
+void test_matrix_identity() {
+    std::vector<std::vector<double> > a = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 8, 7, 6},
+        {5, 4, 3, 2}
+    };
+
+    std::vector<std::vector<double> > identity = {
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    };
+
+    Matrix A(a), I(identity);
+
+    assert(A * I == A);
+
+    std::cout << "test_matrix_identity passed." << std::endl;
+}
+
+void test_matrix_transpose() {
+    std::vector<std::vector<double> > a = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 8, 7, 6}
+    };
+
+    std::vector<std::vector<double> > b = {
+        {1, 5, 9},
+        {2, 6, 8},
+        {3, 7, 7},
+        {4, 8, 6}
+    };
+
+    std::vector<std::vector<double> > identity = {
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 1}
+    };
+
+    Matrix A(a), B(b), I(identity);
+
+    assert(A.transpose() == B);
+    assert(I.transpose() == I);
+
+    std::cout << "test_matrix_transpose passed." << std::endl;
+}

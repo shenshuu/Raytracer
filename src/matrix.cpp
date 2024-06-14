@@ -70,6 +70,18 @@ Matrix Matrix::operator*(Matrix& other) {
     return Matrix(result);
 }
 
+Matrix Matrix::transpose() {
+    std::vector<std::vector<double> > elements(cols_, std::vector<double>(rows_, 0));
+
+    for (int i = 0; i < rows_; i++) {
+        for (int j = 0; j < cols_; j++) {
+            elements[j][i] = matrix_[i][j];
+        }
+    }
+    
+    return Matrix(elements);
+}
+
 double Matrix::element_at(int row, int col) {
     if (row < 0 || row >= rows_ || col < 0 || col >= cols_)
         throw std::out_of_range("row or col out of range");

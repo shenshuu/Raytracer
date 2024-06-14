@@ -20,6 +20,9 @@ class Matrix {
         // overloaded multiplication operator
         Matrix operator*(Matrix& other);
 
+        // transpose matrix
+        Matrix transpose();
+
         // print function for debugging
         void print();
 
