@@ -2,6 +2,7 @@
 #include "test_vector.cpp"
 #include "test_color.cpp"
 #include "test_canvas.cpp"
+#include "test_matrix.cpp"
 #include "../src/canvas.h"
 
 int main() {
@@ -28,6 +29,9 @@ int main() {
     canvas.write_pixel(2, 1, Color(0.0, 0.5, 0.0));
     canvas.write_pixel(2, 4, Color(-0.5, 0.0, 1.0));
     canvas.to_ppm();
+
+    // matrix tests
+    test_create_matrix();
 
     return 0;
 }
