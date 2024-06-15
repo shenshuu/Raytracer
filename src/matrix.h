@@ -48,6 +48,14 @@ class Matrix {
         // removes specific row and column of matrix
         Matrix submatrix(int row, int col);
 
+        // returns whether or not the matrix is invertable
+        bool invertable();
+
+        // inverts a matrix
+        Matrix inverse();
+
+        // multiplies matrix by scalar constant
+        Matrix scale(double c);
 
     private:
         std::vector<std::vector<double> > matrix_;

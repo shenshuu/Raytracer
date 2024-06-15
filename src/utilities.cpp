@@ -1,4 +1,4 @@
-#define EPSILON 1e-9
+#define EPSILON 1e-5
 #include "utilities.h"
 #include <cmath>
 

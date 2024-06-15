@@ -105,7 +105,7 @@ double Matrix::minor(int row, int col) {
 }
 
 double Matrix::cofactor(int row, int col) {
-    return minor(row, col) * (row + col % 2 ? -1 : 1);
+    return minor(row, col) * ((row + col) % 2 ? -1 : 1);
 }
 
 Matrix Matrix::submatrix(int row, int col) {
@@ -123,6 +123,37 @@ Matrix Matrix::submatrix(int row, int col) {
     }
 
     return Matrix(result);
+}
+
+bool Matrix::invertable() {
+    return determinant() != 0;
+}
+
+Matrix Matrix::scale(double c) {
+    std::vector<std::vector<double> > result(rows_, std::vector<double>(cols_, 0));
+
+    for (int i = 0; i < rows_; i++) {
+        for (int j = 0; j < cols_; j++) {
+            result[i][j] = matrix_[i][j] * c;
+        }
+    }
+    
+    return Matrix(result);
+}
+
+Matrix Matrix::inverse() {
+    if (!invertable())
+        throw std::logic_error("cannot invert matrix with zero determinant");
+
+    std::vector<std::vector<double> > cofactors(rows_, std::vector<double>(cols_, 0));
+    for (int i = 0; i < rows_; i++) {
+        for (int j = 0; j < cols_; j++) {
+            cofactors[i][j] = cofactor(i,j);
+        }
+    }
+    
+    Matrix m(cofactors);
+    return m.transpose().scale(1.0 / determinant());
 }
 
 void Matrix::print() {

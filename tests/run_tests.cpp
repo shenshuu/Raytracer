@@ -40,6 +40,8 @@ int main() {
     test_matrix_minor();
     test_matrix_cofactor();
     test_matrix_determinant();
+    test_matrix_invertability();
+    test_matrix_inverse();
 
     return 0;
 }
