@@ -36,6 +36,19 @@ class Matrix {
         // returns element at specific position of matrix
         double element_at(int row, int col);
 
+        // returns determinant of matrix
+        double determinant();
+
+        // returns minor of a matrix
+        double minor(int row, int col);
+
+        // returns cofactor of a matrix
+        double cofactor(int row, int col);
+
+        // removes specific row and column of matrix
+        Matrix submatrix(int row, int col);
+
+
     private:
         std::vector<std::vector<double> > matrix_;
         int rows_;

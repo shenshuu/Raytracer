@@ -78,7 +78,7 @@ Matrix Matrix::transpose() {
             elements[j][i] = matrix_[i][j];
         }
     }
-    
+
     return Matrix(elements);
 }
 
@@ -86,6 +86,43 @@ double Matrix::element_at(int row, int col) {
     if (row < 0 || row >= rows_ || col < 0 || col >= cols_)
         throw std::out_of_range("row or col out of range");
     return matrix_[row][col];
+}
+
+double Matrix::determinant() {
+    if (number_of_rows() == 2 && number_of_cols() == 2) 
+        return matrix_[0][0] * matrix_[1][1] - matrix_[0][1] * matrix_[1][0];
+
+    double d = 0.0;
+    for (int j = 0; j < cols_; j++) {
+        d += matrix_[0][j] * cofactor(0,j);
+    }
+
+    return d;
+}
+
+double Matrix::minor(int row, int col) {
+    return submatrix(row, col).determinant();
+}
+
+double Matrix::cofactor(int row, int col) {
+    return minor(row, col) * (row + col % 2 ? -1 : 1);
+}
+
+Matrix Matrix::submatrix(int row, int col) {
+    if (row < 0 || row >= rows_ || col < 0 || col >= cols_)
+        throw std::out_of_range("specified row or col must be within range of matrix");
+    
+    std::vector<std::vector<double> > result(rows_ - 1, std::vector<double>(cols_ - 1, 0));
+    
+    for (int i = 0; i < rows_; i++) {
+        if (i == row) continue;
+        for (int j = 0; j < cols_; j++) {
+            if (j == col) continue;
+            result[i >= row ? i-1 : i][j >= col ? j-1: j] = matrix_[i][j];
+        }
+    }
+
+    return Matrix(result);
 }
 
 void Matrix::print() {

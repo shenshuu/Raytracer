@@ -36,6 +36,10 @@ int main() {
     test_matrix_multiplication();
     test_matrix_identity();
     test_matrix_transpose();
+    test_submatrix();
+    test_matrix_minor();
+    test_matrix_cofactor();
+    test_matrix_determinant();
 
     return 0;
 }

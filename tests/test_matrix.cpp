@@ -130,3 +130,97 @@ void test_matrix_transpose() {
 
     std::cout << "test_matrix_transpose passed." << std::endl;
 }
+
+void test_submatrix() {
+    std::vector<std::vector<double> > a = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 8, 7, 6},
+        {5, 4, 3, 2}
+    };
+
+    std::vector<std::vector<double> > b = {
+        {1, 2, 4},
+        {9, 8, 6},
+        {5, 4, 2}
+    };
+
+    std::vector<std::vector<double> > c = {
+        {1, 2, 4},
+        {9, 8, 6},
+        {5, 4, 2}
+    };
+
+    std::vector<std::vector<double> > d = {
+        {1, 2},
+        {9, 8}
+    };
+
+    Matrix A(a), B(b), C(c), D(d);
+
+    assert(A.submatrix(1, 2) == B);
+    assert(C.submatrix(2, 2) == D);
+
+    std::cout << "test_submatrix passed." << std::endl;
+}
+
+void test_matrix_minor() {
+    std::vector<std::vector<double> > a = {
+        {3, 5, 0},
+        {2, -1, -7},
+        {6, -1, 5}
+    };
+
+    Matrix A(a);
+
+    assert(A.submatrix(1, 0).determinant() == 25);
+
+    std::cout << "test_matrix_minor passed." << std::endl;
+}
+
+void test_matrix_cofactor() {
+    std::vector<std::vector<double> > a = {
+        {3, 5, 0},
+        {2, -1, -7},
+        {6, -1, 5}
+    };
+
+    Matrix A(a);
+
+    assert(A.minor(0,0) == -12);
+    assert(A.cofactor(0,0) == -12);
+    assert(A.minor(1,0) == 25);
+    assert(A.cofactor(1,0) == -25);
+
+    std::cout << "test_matrix_cofactor passed." << std::endl;
+}
+
+void test_matrix_determinant() {
+    std::vector<std::vector<double> > a = {
+        {1, 2, 6},
+        {-5, 8, -4},
+        {2, 6, 4}
+    };
+
+    std::vector<std::vector<double> > b = {
+        {-2, -8, 3, 5},
+        {-3, 1, 7, 3},
+        {1, 2, -9, 6},
+        {-6, 7, 7, -9}
+    };
+
+    Matrix A(a), B(b);
+
+    assert(A.cofactor(0,0) == 56);
+    assert(A.cofactor(0,1) == 12);
+    assert(A.cofactor(0,2) == -46);
+    assert(A.determinant() == -196);
+
+    assert(B.cofactor(0,0) == 690);
+    assert(B.cofactor(0,1) == 447);
+    assert(B.cofactor(0,2) == 210);
+    assert(B.cofactor(0,3) == 51);
+    assert(B.determinant() == -4071);
+
+    std::cout << "test_matrix_determinant passed." << std::endl;
+}
